@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    EDM project, module for Odoo, Open Source Management Solution
@@ -18,6 +19,18 @@
 #
 ##############################################################################
 
-import inspy_edm
-import project
+from openerp.osv import fields,osv
 
+class Project(osv.Model):
+    
+    _inherit = 'project.project'
+    
+    
+    _columns = {
+        'emd_doc_ids': fields.many2one(
+            'inspy.edm.doc',
+            'project_id',
+            string="Project",
+        ),
+    }
+    

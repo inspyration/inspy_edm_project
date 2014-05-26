@@ -32,6 +32,7 @@
     'depends' : ['base','inspy_edm','project'],
     'data': [
         'inspy_edm/views/inspy_edm_view.xml',
+        'project/views/project_view.xml',
     ],
     'js': [
     ],
