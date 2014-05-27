@@ -2,6 +2,20 @@
 <openerp>
     <data>
 
+        <record id="view_inspy_doc_project_filter" model="ir.ui.view">
+            <field name="name">inspy.edm.doc.select.inherit</field>
+            <field name="model">inspy.edm.doc</field>
+            <field name="inherit_id" ref="inspy_edm.view_inspy_edm_doc_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='url']" position="after">
+                    <field name="project_id"/>
+                </xpath>
+                <xpath expr="//filter[@string='Partner']" position="after">
+                    <filter string="Project" domain="[]" context="{'group_by' : 'project_id'}" />
+                </xpath>
+            </field>
+        </record>
+
         <record id="view_inspy_doc_project_form" model="ir.ui.view">
             <field name="name">inspy.edm.doc.form.inherit</field>
             <field name="model">inspy.edm.doc</field>
