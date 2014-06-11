@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    EDM project, module for Odoo, Open Source Management Solution

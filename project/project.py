@@ -24,13 +24,23 @@ from openerp.osv import fields,osv
 class Project(osv.Model):
     
     _inherit = 'project.project'
-    
+
+    def _edm_docs_count(self, cr, uid, ids, field_name, arg, context=None):
+        res = {}
+        for project in self.browse(cr, uid, ids, context=context):
+            res[project.id] = len(project.emd_doc_ids)
+        return res
     
     _columns = {
-        'emd_doc_ids': fields.many2one(
+        'emd_doc_ids': fields.one2many(
             'inspy.edm.doc',
             'project_id',
-            string="Project",
+            string="EDM Documents",
+        ),
+        'edm_docs_count': fields.function(
+            _edm_docs_count,
+            string="Number of EDM documents",
+            type='integer',
         ),
     }
     

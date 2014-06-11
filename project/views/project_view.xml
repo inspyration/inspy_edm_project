@@ -8,10 +8,12 @@
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
                 <xpath expr="//div[@name='buttons']" position="inside">
-                    <button class="oe_inline oe_stat_button" type="action" string="Documents EDM"
+                    <button class="oe_inline oe_stat_button" type="action"
                         name="%(inspy_edm.action_inspy_edm_doc)d"
                         icon="fa-files-o"
-                        context="{'search_default_project_id': active_id}" />
+                        context="{'search_default_project_id': active_id}">
+                        <field string="EDM Documents" name="edm_docs_count" widget="statinfo"/>
+                    </button>
                 </xpath>
             </field>
         </record>
